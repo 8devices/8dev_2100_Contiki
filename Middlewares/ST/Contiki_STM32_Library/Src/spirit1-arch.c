@@ -49,6 +49,10 @@
 #include "stm32f4xx.h"
 #endif
 
+#ifdef USE_8DEV_2100_0003
+#include "stm32l4xx.h"
+#endif
+
 #include "spirit1-arch.h"
 #include "spirit1.h"
 #include "st-lib.h"

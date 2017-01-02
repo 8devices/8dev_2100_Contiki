@@ -41,7 +41,12 @@
 #ifdef USE_STM32F4XX_NUCLEO
 #include "stm32f4xx.h"
 #include "stm32f4xx_hal.h"
-#endif/*#include "stm32l1xx_hal_rcc.h"
+#endif
+#ifdef USE_8DEV_2100_0003
+#include "stm32l4xx.h"
+#include "stm32l4xx_hal.h"
+#endif
+/*#include "stm32l1xx_hal_rcc.h"
 #include "stm32l1xx_hal_cortex.h"*/
 #include "st-lib.h"
 //#include "stm32_xx_it.h"

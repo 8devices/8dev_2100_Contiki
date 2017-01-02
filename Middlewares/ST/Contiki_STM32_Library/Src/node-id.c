@@ -60,6 +60,12 @@ volatile uint32_t device_id[3];
 #define DEVICE_ID_REG1  (*((volatile uint32_t *) 0x1FFF7A14))
 #define DEVICE_ID_REG2	(*((volatile uint32_t *) 0x1FFF7A18))
 #endif
+
+#ifdef USE_8DEV_2100_0003
+#define DEVICE_ID_REG0  (*((volatile uint32_t *) 0x1FFF7590))
+#define DEVICE_ID_REG1  (*((volatile uint32_t *) 0x1FFF7594))
+#define DEVICE_ID_REG2	(*((volatile uint32_t *) 0x1FFF7598))
+#endif
 /*---------------------------------------------------------------------------*/
 /**
  * @brief  node_id_restore

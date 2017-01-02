@@ -79,6 +79,10 @@
 #ifdef USE_STM32F4XX_NUCLEO
 #include "stm32f4xx.h"
 #endif
+
+#ifdef USE_8DEV_2100_0003
+#include "stm32l4xx.h"
+#endif
 /*---------------------------------------------------------------------------*/
 #if NETSTACK_CONF_WITH_IPV6
 #include "net/ipv6/uip-ds6.h"
@@ -228,7 +232,7 @@ static void set_rime_addr(void)
 /*---------------------------------------------------------------------------*/
 static void print_parameters(void)
 {
-#include "rpl-conf.h"
+#include "rpl/rpl-conf.h"
 //#include "er-coap.h"
 
 /* A selected set of parameteres to check the firmware configuration.        */
@@ -240,6 +244,9 @@ printf("Platform and Contiki parameters:\n");
 #endif
 #ifdef USE_STM32F4XX_NUCLEO
   PRINT_PARAMETER(USE_STM32F4XX_NUCLEO, "%d");
+#endif
+#ifdef USE_8DEV_2100_0003
+  PRINT_PARAMETER(USE_8DEV_2100_0003, "%d");
 #endif
 
 #ifdef X_NUCLEO_IDS01A4

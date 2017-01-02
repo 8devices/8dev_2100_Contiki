@@ -150,6 +150,11 @@ typedef unsigned short  uip_stats_t;
 /*---------------------------------------------------------------------------*/
 #endif//USE_STM32F4XX_NUCLEO
 
+#ifdef USE_8DEV_2100_0003
+#define F_CPU                   80000000ul
+#define RTIMER_ARCH_SECOND      80000
+#endif
+
 #endif /* __PLATFORM_CONF_H__ */
 /*---------------------------------------------------------------------------*/
 /** @} */

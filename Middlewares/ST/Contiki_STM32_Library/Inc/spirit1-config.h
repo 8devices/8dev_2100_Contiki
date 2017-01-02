@@ -44,7 +44,11 @@
  * @file Additional parameters for the Spirit1
  */
 /*---------------------------------------------------------------------------*/
-#define XTAL_FREQUENCY              50000000    /* Hz */ 
+#ifdef USE_8DEV_2100_0003
+#define XTAL_FREQUENCY              32000000    /* Hz */
+#else
+#define XTAL_FREQUENCY              50000000    /* Hz */
+#endif
 #define SPIRIT_MAX_FIFO_LEN         96
 /*---------------------------------------------------------------------------*/
 

@@ -59,6 +59,8 @@ void spirit1_interrupt_callback(void);
          #define USE_SPIRIT1_868MHz
 #elif defined(X_NUCLEO_IDS01A5)
          #define USE_SPIRIT1_915MHz
+#elif defined(USE_8DEV_2100_0003)
+	#define USE_SPIRIT1_868MHz
 #else
 #error SPIRIT1 Nucleo Shield undefined or unsupported
 #endif

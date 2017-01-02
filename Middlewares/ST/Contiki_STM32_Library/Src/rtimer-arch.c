@@ -155,6 +155,13 @@ void rtimer_arch_init(void)
 
 }
 #endif
+
+#ifdef USE_8DEV_2100_0003
+void rtimer_arch_init(void)
+{
+
+}
+#endif
 /*---------------------------------------------------------------------------*/
 rtimer_clock_t rtimer_arch_now(void)
 {

@@ -44,6 +44,9 @@
 #ifdef USE_STM32F4XX_NUCLEO
 #include "stm32f4xx.h"
 #endif
+#ifdef USE_8DEV_2100_0003
+#include "stm32l4xx.h"
+#endif
 //#include "stm32l1xx_hal_dma.h"
 //#include "stm32l1xx_hal_uart.h"
 #include "st-lib.h"

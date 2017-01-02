@@ -53,6 +53,11 @@
   #include "stm32l1xx_nucleo.h"
 #endif
 
+#ifdef USE_8DEV_2100_0003
+  #include "stm32l4xx.h"
+  #include "stm32l4xx_hal.h"
+#endif
+
 void MX_GPIO_Init(void);
 void Error_Handler(void);
 void SystemClock_Config(void);

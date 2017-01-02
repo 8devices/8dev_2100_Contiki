@@ -60,6 +60,9 @@
 #include "stm32f4xx_hal.h"
 #include "main.h"
 #endif
+#ifdef USE_8DEV_2100_0003
+#include "stm32l4xx.h"
+#endif
 #include "platform-conf.h"
 #include <stdio.h>
 #include "dev/slip.h"
@@ -100,8 +103,10 @@ uart1_set_input(int (*input) (unsigned char c))
 void
 slip_arch_init(unsigned long ubr)
 {
+#ifndef USE_8DEV_2100_0003
   st_lib_hal_uart_enable_it(&st_lib_uart_handle, UART_IT_RXNE);
   //uart1_set_input(slip_input_byte);
+#endif
 }
 /*--------------------------------------------------------------------------*/
 

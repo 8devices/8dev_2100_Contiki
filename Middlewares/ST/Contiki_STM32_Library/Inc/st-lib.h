@@ -58,7 +58,11 @@
 
 #define st_lib_g_x_status                        g_xStatus
 
+#ifdef USE_8DEV_2100_0003
+#define st_lib_p_spi_handle                      hspi1
+#else
 #define st_lib_p_spi_handle                      pSpiHandle
+#endif
 /*---------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------*/
@@ -311,6 +315,10 @@
 #include "stm32f4xx_hal_tim.h"
 #endif
 
+#ifdef USE_8DEV_2100_0003
+#include "stm32l4xx_hal_tim.h"
+#endif
+
 #define st_lib_tim_handle_typedef                TIM_HandleTypeDef
 #define st_lib_tim_clock_config_typedef          TIM_ClockConfigTypeDef
 #define st_lib_tim_oc_init_typedef               TIM_OC_InitTypeDef
@@ -337,6 +345,13 @@
 #include "stm32f4xx_hal_uart.h"
 #endif
 
+#ifdef USE_8DEV_2100_0003
+#define st_lib_uart_handle_typedef               void*
+#define st_lib_hal_uart_transmit(h, data, len, t)	while (CDC_Transmit_FS(data, len) != HAL_OK) __NOP()
+//void st_lib_hal_uart_transmit(st_lib_uart_handle_typedef handle, uint8_t *data, uint32_t len, uint32_t timeout);
+#define st_lib_hal_uart_receive(...)	while (1) __NOP()
+
+#else
 #define st_lib_uart_handle_typedef               UART_HandleTypeDef
 
 #define st_lib_hal_uart_enable_it(...)           __HAL_UART_ENABLE_IT(__VA_ARGS__)
@@ -345,6 +360,7 @@
 #define st_lib_hal_uart_receive_it(...)          HAL_UART_Receive_IT(__VA_ARGS__)
 #define st_lib_hal_uart_rx_cplt_callback(...)    HAL_UART_RxCpltCallback(__VA_ARGS__)
 #define st_lib_hal_uart_transmit(...)            HAL_UART_Transmit(__VA_ARGS__)
+#endif
 /*---------------------------------------------------------------------------*/
 
 /*---------------------------------------------------------------------------*/
@@ -355,6 +371,10 @@
 
 #ifdef USE_STM32F4XX_NUCLEO
 #include "stm32f4xx_nucleo.h"
+#endif
+
+#ifdef USE_8DEV_2100_0003
+#include "board.h"
 #endif
 
 #define st_lib_gpio_typedef                      GPIO_TypeDef
