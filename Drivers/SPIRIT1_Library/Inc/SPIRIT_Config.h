@@ -104,7 +104,8 @@ extern "C" {
 /** @defgroup Configuration_Exported_Constants  Configuration Exported Constants
  * @{
  */
-#define DOUBLE_XTAL_THR                         30000000
+// This cannot be less than 37MHz, because IF_OFFSET_DIG is only 8bits
+#define DOUBLE_XTAL_THR                         40000000
 
 /**
  * @}
